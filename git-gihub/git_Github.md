@@ -7,8 +7,16 @@
 - git config --global user.name usuario_github
 - git config --list
 
+## criando configurações locais
+
+- git config --local user.name JeffersonPasserini
+- git config --local user.email "jefferson.passerini@hotmail.com"
+
+# lista configurações locais
+- git config --local --list  
+
 ## Zerar alguma configuração
-- git global unset "propriedade"
+- git global --unset "propriedade"
 
 ## Ciclo de Vida
 - untracked
@@ -35,12 +43,51 @@
 
 - ssh-add id_ed25519 (chave privada)
 
-## Outra forma: token de acesso pessoal
+### gerar chave para segundo usuario github
 
+- ssh-keygen -t rsa -C "jefferson.passerini@hotmail.com" -f "id_rsa_hotmail"
+
+crie o acesso ssh no github settings com a nova chave
+
+adicione ao ssh-agent as duas chaves das duas contas
+ssh-add id_...
+ssh_add id_conta2...
+
+- ssh-add -l  lista todos as chaves vinculadas ao agente
+- ssh-add -D remove todas as chaves vinculadas
+
+criar arquivo de configuração para  gerenciar as chaves geradas
+
+### crie o arquivo no diretorio .ssh
+touch config
+edite o arquivo
+code config (pico)
+
+### Coloque o seguinte codigo
+
+# Conta pessoal, a configuração padrão
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+   
+# Conta de trabalho-1
+Host github.com-work_user1    
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_work_user1
+
+
+## Outra forma: token de acesso pessoal
 
 
 #### Associa repositorio local ao remoto
 - git remote add origin "endereço ssh fornecido pelo github"
+
+### Quando existem mais de um usuario
+- git clone git@github.com-JeffersonPasserini:JeffersonPasserini/DIO-GFT-Start-4-Java.git
+
+O que estiver entre o @ e o ":" é o conteudo da tag Host do arquivo config
 
 #### verifica o status
 - git remote -v
@@ -53,6 +100,8 @@
 
 #### clona um repositorio remoto
 - git clone "link ssh do github"
+
+
 
 
 
