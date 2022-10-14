@@ -45,6 +45,8 @@
 
 ### gerar chave para segundo usuario github
 
+Tutorial on-line --> https://www.freecodecamp.org/portuguese/news/como-gerenciar-diversas-contas-do-github-em-uma-unica-maquina-com-chaves-ssh/
+
 - ssh-keygen -t rsa -C "jefferson.passerini@hotmail.com" -f "id_rsa_hotmail"
 
 crie o acesso ssh no github settings com a nova chave
