@@ -67,15 +67,15 @@ code config (pico)
 
 # Conta pessoal, a configuração padrão
 Host github.com
-   HostName github.com
-   User git
-   IdentityFile ~/.ssh/id_rsa
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa
    
 # Conta de trabalho-1
-Host github.com-work_user1    
-   HostName github.com
-   User git
-   IdentityFile ~/.ssh/id_rsa_work_user1
+Host github.com-work_user1
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_work_user1
 
 
 ## Outra forma: token de acesso pessoal
